@@ -82,17 +82,28 @@ const Hero = () => {
             {/* Professional Photo with Circular Design */}
             <div className="flex justify-center md:justify-end animate-slide-in-right">
               <div className="relative">
-                {/* Outer animated ring */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent opacity-20 blur-xl animate-pulse" />
+                {/* Outer glow layer - Large blur effect */}
+                <div className="absolute -inset-12 rounded-full bg-gradient-to-br from-primary/30 via-accent/20 to-primary/30 blur-3xl animate-pulse" />
                 
-                {/* Middle ring with glow effect */}
-                <div className="absolute -inset-4 rounded-full bg-gradient-to-r from-primary via-accent to-primary animate-glow opacity-50" />
+                {/* Rotating gradient ring */}
+                <div className="absolute -inset-8 rounded-full bg-gradient-to-r from-primary via-accent via-primary to-accent opacity-40 blur-2xl animate-glow" 
+                     style={{ 
+                       background: 'conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))',
+                       filter: 'blur(20px)'
+                     }} />
                 
-                {/* Inner border ring */}
-                <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-primary to-accent" />
+                {/* Middle decorative ring */}
+                <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-primary/60 to-accent/60 blur-md animate-pulse" 
+                     style={{ animationDuration: '3s' }} />
+                
+                {/* Solid border ring */}
+                <div className="absolute -inset-2 rounded-full bg-gradient-to-tr from-primary via-accent to-primary p-1">
+                  <div className="w-full h-full rounded-full bg-background" />
+                </div>
                 
                 {/* Photo container */}
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-background shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl transform hover:scale-105 transition-transform duration-500"
+                     style={{ boxShadow: '0 0 60px hsl(var(--primary) / 0.4), 0 0 100px hsl(var(--accent) / 0.2)' }}>
                   <img 
                     src={jayhindPhoto} 
                     alt="Jayhind Yadav - Full Stack Python Developer"
@@ -100,9 +111,12 @@ const Hero = () => {
                   />
                 </div>
 
-                {/* Floating accent circles */}
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-gradient-to-br from-primary to-accent opacity-60 blur-md animate-pulse" />
-                <div className="absolute -bottom-6 -left-6 w-16 h-16 rounded-full bg-gradient-to-br from-accent to-primary opacity-40 blur-md animate-pulse" style={{ animationDelay: '1s' }} />
+                {/* Floating accent circles with unique positioning */}
+                <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-gradient-to-br from-primary to-accent opacity-50 blur-xl animate-pulse" />
+                <div className="absolute -bottom-8 -left-8 w-20 h-20 rounded-full bg-gradient-to-tl from-accent to-primary opacity-40 blur-lg animate-pulse" 
+                     style={{ animationDelay: '1s', animationDuration: '4s' }} />
+                <div className="absolute top-1/4 -right-10 w-16 h-16 rounded-full bg-gradient-to-r from-accent to-primary opacity-30 blur-md animate-pulse" 
+                     style={{ animationDelay: '2s', animationDuration: '5s' }} />
               </div>
             </div>
           </div>
